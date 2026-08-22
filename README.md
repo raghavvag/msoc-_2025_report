@@ -432,35 +432,53 @@ The durable output is not the generated code; it is the **method**. The migratio
 **Release artifacts:** `mifos-birt-reports-default.zip` (66 validated templates) and `mifos-birt-reports-api-reference.md` (per-report REST invocation guide).
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'fontSize': '15px',
+    'textColor': '#1b2733',
+    'titleColor': '#1b2733',
+    'sectionBkgColor': '#eaf1f9',
+    'altSectionBkgColor': '#f7fafd',
+    'gridColor': '#b9c7d6',
+    'doneTaskBkgColor': '#4a86c8',
+    'doneTaskBorderColor': '#23507f',
+    'taskTextColor': '#ffffff',
+    'taskTextDarkColor': '#1b2733',
+    'taskTextOutsideColor': '#1b2733',
+    'todayLineColor': '#c0392b'
+  },
+  'gantt': { 'barHeight': 22, 'barGap': 6, 'topPadding': 55, 'leftPadding': 130, 'fontSize': 14 }
+}}%%
 gantt
     title MSOC 2026 Execution Timeline
     dateFormat YYYY-MM-DD
     axisFormat %b %d
+    todayMarker off
 
-    section Phase 1 — Isolation
-    Execution isolation (MX-287)        :done, p1a, 2026-06-05, 8d
-    Regression coverage (MX-290)        :done, p1b, 2026-06-11, 6d
-    Cache lifecycle (MX-292)            :done, p1c, 2026-06-16, 7d
+    section Isolation
+    MX-287 Execution isolation      :done, p1a, 2026-06-05, 8d
+    MX-290 Regression coverage      :done, p1b, 2026-06-11, 6d
+    MX-292 Cache lifecycle          :done, p1c, 2026-06-16, 7d
 
-    section Phase 2 — Performance
-    RoutingDataSource fix (MX-369)      :done, p2a, 2026-06-20, 6d
-    Testcontainers harness (MX-370)     :done, p2b, 2026-06-24, 9d
-    Connection injection (MX-299)       :done, p2c, 2026-06-30, 7d
-    Dialect interpolation (MX-297)      :done, p2d, 2026-07-06, 8d
-    Streaming delivery (MX-295)         :done, p2e, 2026-07-12, 8d
-    Tenant-aware routing (MX-380)       :done, p2f, 2026-07-22, 5d
+    section Performance
+    MX-369 RoutingDataSource fix    :done, p2a, 2026-06-20, 6d
+    MX-370 Testcontainers harness   :done, p2b, 2026-06-24, 9d
+    MX-299 Connection injection     :done, p2c, 2026-06-30, 7d
+    MX-297 Dialect interpolation    :done, p2d, 2026-07-06, 8d
+    MX-295 Streaming delivery       :done, p2e, 2026-07-12, 8d
+    MX-380 Tenant-aware routing     :done, p2f, 2026-07-22, 5d
 
-    section Phase 3 — Compiler
-    PRPT ingestion (MX-302 to MX-305)   :done, p3a, 2026-07-08, 8d
-    Translation layer (MX-307, MX-308)  :done, p3b, 2026-07-16, 6d
-    DOM build and export (MX-309..311)  :done, p3c, 2026-07-21, 7d
-    Migration CLI (MX-312)              :done, p3d, 2026-07-27, 5d
-    E2E validation (MX-313)             :done, p3e, 2026-07-30, 6d
-    Fallbacks and hardening (MX-314/316):done, p3f, 2026-08-03, 8d
+    section Compiler
+    MX-302 to 305 PRPT ingestion    :done, p3a, 2026-07-08, 8d
+    MX-307 to 308 Translation layer :done, p3b, 2026-07-16, 6d
+    MX-309 to 311 DOM and export    :done, p3c, 2026-07-21, 7d
+    MX-312 Migration CLI            :done, p3d, 2026-07-27, 5d
+    MX-313 E2E validation           :done, p3e, 2026-07-30, 6d
+    MX-314 and 316 Hardening        :done, p3f, 2026-08-03, 8d
 
-    section Phase 4 — Delivery
-    66 reports + hot-swap (MX-317)      :done, p4a, 2026-08-10, 11d
+    section Delivery
+    MX-317 Reports and hot-swap     :done, p4a, 2026-08-10, 11d
 ```
 
 <p align="center"><i>Figure 9: Phase timeline mapped to merged pull requests.</i></p>
